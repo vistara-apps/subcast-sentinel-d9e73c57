@@ -91,7 +91,7 @@ export default function SubcastSentinel() {
         <div className="flex items-center gap-2">
           {saveFrameButton}
           <button
-            onClick={viewProfile}
+            onClick={() => viewProfile()}
             className="text-accent hover:text-accent/80 transition-colors"
             title="View Profile"
           >
