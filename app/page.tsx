@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
@@ -107,7 +106,7 @@ export default function SubcastSentinel() {
         </div>
       }
       navigation={
-        <div className="flex border-b border-border bg-surface">
+        <div className="flex border-b border-border bg-surface overflow-x-auto">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -115,26 +114,31 @@ export default function SubcastSentinel() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 text-sm font-medium transition-colors ${
+                className={`flex-1 min-w-0 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium transition-all duration-200 relative ${
                   isActive
-                    ? 'text-accent border-b-2 border-accent bg-accent/5'
+                    ? 'text-accent bg-accent/5'
                     : 'text-primary/60 hover:text-primary hover:bg-muted/50'
                 }`}
               >
-                <Icon size={18} />
-                {tab.label}
-                {tab.id === 'alerts' && alertCount > 0 && (
-                  <span className="badge-destructive text-xs ml-1">
-                    {alertCount}
-                  </span>
+                {isActive && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-t-full" />
                 )}
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Icon size={16} className="sm:w-[18px] sm:h-[18px]" />
+                  <span className="truncate">{tab.label}</span>
+                  {tab.id === 'alerts' && alertCount > 0 && (
+                    <span className="badge-destructive text-xs ml-1 min-w-fit">
+                      {alertCount}
+                    </span>
+                  )}
+                </div>
               </button>
             );
           })}
         </div>
       }
     >
-      <div className="animate-fade-in">
+      <div className="animate-fade-in-up">
         {renderContent()}
       </div>
     </AppShell>

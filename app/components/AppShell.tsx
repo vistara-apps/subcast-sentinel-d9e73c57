@@ -1,4 +1,3 @@
-
 'use client';
 
 import type { ReactNode } from 'react';
@@ -22,16 +21,16 @@ export function AppShell({
   return (
     <div className="min-h-screen flex flex-col bg-bg">
       {/* Header */}
-      <header className="bg-surface border-b border-border px-4 py-3">
+      <header className="bg-surface border-b border-border px-6 py-4 shadow-sm">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 bg-accent rounded-md">
-              <Shield className="w-5 h-5 text-white" />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-accent to-accent/80 rounded-lg shadow-md">
+              <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-primary">{title}</h1>
+              <h1 className="text-xl font-bold text-primary tracking-tight">{title}</h1>
               {subtitle && (
-                <p className="text-sm text-primary/60">{subtitle}</p>
+                <p className="text-sm text-primary/70 font-medium mt-0.5">{subtitle}</p>
               )}
             </div>
           </div>
@@ -52,9 +51,9 @@ export function AppShell({
       </main>
 
       {/* Footer */}
-      <footer className="bg-surface border-t border-border px-4 py-3">
+      <footer className="bg-surface border-t border-border px-6 py-4">
         <div className="flex items-center justify-center">
-          <p className="text-xs text-primary/60">
+          <p className="text-xs text-primary/60 font-medium">
             Built on Base with MiniKit
           </p>
         </div>

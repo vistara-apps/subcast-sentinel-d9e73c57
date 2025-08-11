@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -137,10 +136,18 @@ export function InteractionFeed({ onAlertCountChange }: InteractionFeedProps) {
 
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin w-8 h-8 border-2 border-accent border-t-transparent rounded-full"></div>
-          <p className="text-primary/60">Loading interactions...</p>
+      <div className="flex-1 flex items-center justify-center p-12">
+        <div className="flex flex-col items-center gap-6">
+          <div className="relative">
+            <div className="animate-spin w-10 h-10 border-3 border-accent/20 border-t-accent rounded-full"></div>
+            <div className="absolute inset-0 animate-pulse">
+              <div className="w-10 h-10 border-3 border-transparent border-t-accent/40 rounded-full"></div>
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-primary/70 font-medium mb-1">Loading interactions...</p>
+            <p className="text-sm text-primary/50">Fetching your latest Farcaster activity</p>
+          </div>
         </div>
       </div>
     );
@@ -149,42 +156,56 @@ export function InteractionFeed({ onAlertCountChange }: InteractionFeedProps) {
   return (
     <div className="flex-1 flex flex-col">
       {/* Filter Bar */}
-      <div className="bg-surface border-b border-border p-4">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Interaction Feed</h2>
-          <div className="flex items-center gap-2">
+      <div className="bg-surface border-b border-border p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-xl font-bold text-primary mb-1">Interaction Feed</h2>
+            <p className="text-sm text-primary/60">Monitor your Farcaster interactions in real-time</p>
+          </div>
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`btn-secondary ${showFilters ? 'bg-accent text-white' : ''}`}
+              className={`btn-secondary flex items-center gap-2 ${showFilters ? 'bg-accent text-white' : ''}`}
+              title="Toggle filters"
             >
               <Filter size={16} />
+              <span className="hidden sm:inline">Filters</span>
             </button>
-            <button onClick={loadInteractions} className="btn-secondary">
+            <button 
+              onClick={loadInteractions} 
+              className="btn-secondary flex items-center gap-2"
+              title="Refresh interactions"
+            >
               <RefreshCw size={16} />
+              <span className="hidden sm:inline">Refresh</span>
             </button>
           </div>
         </div>
         
         {showFilters && (
-          <FilterBar
-            filters={filters}
-            onFiltersChange={setFilters}
-          />
+          <div className="animate-slide-in">
+            <FilterBar
+              filters={filters}
+              onFiltersChange={setFilters}
+            />
+          </div>
         )}
       </div>
 
       {/* Interactions List */}
       <div className="flex-1 overflow-y-auto">
         {filteredInteractions.length === 0 ? (
-          <div className="flex flex-col items-center justify-center p-8 text-center">
-            <MessageCircle size={48} className="text-primary/30 mb-4" />
-            <h3 className="text-lg font-medium text-primary/60 mb-2">
-              No interactions found
+          <div className="flex flex-col items-center justify-center p-12 text-center max-w-md mx-auto">
+            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+              <MessageCircle size={32} className="text-accent/60" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-3">
+              {filters.alertsOnly ? 'No alerts yet' : 'No interactions found'}
             </h3>
-            <p className="text-sm text-primary/40">
+            <p className="text-sm text-primary/60 leading-relaxed">
               {filters.alertsOnly
-                ? 'No alert-triggering interactions match your filters.'
-                : 'Try adjusting your filters or check back later.'}
+                ? 'When important interactions trigger your alerts, they\'ll appear here. Switch to the Alerts tab to get started.'
+                : 'Your Farcaster interactions will appear here once they start coming in. Try adjusting your filters or check back in a few minutes.'}
             </p>
           </div>
         ) : (
