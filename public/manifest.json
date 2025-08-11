@@ -1,0 +1,14 @@
+{
+  "name": "Subcast Sentinel",
+  "description": "Subcast Sentinel is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://d9e73c57-53bf-4a6c-9dd0-3469dc70d21d.vistara.dev",
+  "properties": {
+    "app": {
+      "name": "Subcast Sentinel",
+      "description": "Subcast Sentinel is a Base Mini App built with Zara.",
+      "url": "https://d9e73c57-53bf-4a6c-9dd0-3469dc70d21d.vistara.dev",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
