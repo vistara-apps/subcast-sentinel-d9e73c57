@@ -10,14 +10,14 @@
     "subtitle": "Built with Zara",
     "description": "Subcast Sentinel is a Base Mini App built with Zara.",
     "iconUrl": "https://0co.to/images/zara-2.png",
-    "homeUrl": "https://d9e73c57-53bf-4a6c-9dd0-3469dc70d21d.vistara.dev",
-    "splashImageUrl": "https://dummyimage.com/200x200/0a0b0d/ffffff.png&text=Splash",
+    "homeUrl": "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app",
+    "splashImageUrl": "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app/splash.png",
     "splashBackgroundColor": "#000000",
-    "heroImageUrl": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Hero",
+    "heroImageUrl": "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app/image.png",
     "tagline": "Subcast Sentinel",
     "screenshotUrls": [
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot1",
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot2"
+      "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app/screenshot.png",
+      "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app/screenshot.png"
     ],
     "primaryCategory": "social",
     "tags": [
@@ -25,6 +25,6 @@
       "miniapp",
       "onchainkit"
     ],
-    "webhookUrl": "https://d9e73c57-53bf-4a6c-9dd0-3469dc70d21d.vistara.dev/api/webhook"
+    "webhookUrl": "https://d9e73c5753bf4a6c9dd03469dc70d21d-tlo1-at8u3a46x-vistara.vercel.app/api/webhook"
   }
 }
